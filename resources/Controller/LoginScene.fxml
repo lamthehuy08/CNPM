@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <SplitPane fx:id="pnB1" dividerPositions="0.2301349325337331" orientation="VERTICAL" prefHeight="600.0" prefWidth="800.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="78.0" prefWidth="757.0">
+               <children>
+                  <HBox alignment="BASELINE_LEFT" layoutY="8.0" prefHeight="84.0" prefWidth="361.0">
+                     <children>
+                        <Label prefHeight="83.0" prefWidth="148.0" text="Demographic" textFill="#3306ba">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="BASELINE_LEFT" prefHeight="84.0" prefWidth="200.0" text="Management" textFill="#350491">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="486.0" prefWidth="793.0">
+               <children>
+                  <Pane prefHeight="457.0" prefWidth="207.0" style="-fx-background-color: #9900ff;">
+                     <children>
+                        <VBox layoutY="98.0" prefHeight="200.0" prefWidth="206.0" spacing="10.0" style="-fx-background-color: #9900ff;">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#KhoanThuButton" prefHeight="95.0" prefWidth="206.0" styleClass="button2" stylesheets="@fullpackstyling.css" text="Khoản thu" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#DanhSachCacHoButton" prefHeight="93.0" prefWidth="206.0" styleClass="button2" stylesheets="@fullpackstyling.css" text="Danh sách các hộ" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <BorderPane fx:id="pnKhoanThu" layoutX="205.0" prefHeight="497.0" prefWidth="592.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <TableView fx:id="tableKhoanThu" prefHeight="422.0" prefWidth="588.0" BorderPane.alignment="TOP_CENTER">
+                          <columns>
+                            <TableColumn fx:id="maHo_KhoanThu" prefWidth="102.0" resizable="false" text="Mã hộ " />
+                              <TableColumn fx:id="tenChuHo_KhoanThu" prefWidth="134.66665649414062" resizable="false" text="Tên chủ hộ" />
+                            <TableColumn fx:id="SoTienDaThu" prefWidth="190.0" text="Số tiền đã thu" />
+                              <TableColumn fx:id="ConPhaiDong" prefWidth="162.66668701171875" text="Còn phải đóng" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <top>
+                        <HBox fx:id="hBox1" prefHeight="36.0" prefWidth="592.0" spacing="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="27.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Picture/img_3.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField alignment="BOTTOM_LEFT" prefHeight="25.0" prefWidth="157.0" />
+                              <Button fx:id="themHo1" mnemonicParsing="false" onAction="#addCacHo" prefHeight="25.0" prefWidth="117.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="Thêm khoản thu" />
+                              <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="125.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="Chỉnh sửa khoản thu" />
+                              <Button mnemonicParsing="false" onAction="#XoaHo" prefHeight="25.0" prefWidth="139.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="Xóa khoản thu" />
+                           </children>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+                  <BorderPane fx:id="pnCacHo" layoutX="205.0" prefHeight="497.0" prefWidth="592.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="205.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <center>
+                        <TableView fx:id="tableCacHo" prefHeight="422.0" prefWidth="588.0" BorderPane.alignment="TOP_CENTER">
+                          <columns>
+                            <TableColumn fx:id="maHo" prefWidth="72.0" resizable="false" text="Mã hộ" />
+                            <TableColumn fx:id="tenChuHo" prefWidth="101.99996948242188" text="Tên chủ hộ" />
+                              <TableColumn fx:id="soNha" prefWidth="101.3333740234375" text="Số nhà " />
+                              <TableColumn fx:id="Duong" minWidth="0.0" prefWidth="98.66668701171875" text="Đường" />
+                              <TableColumn fx:id="Phuong" prefWidth="110.66668701171875" text="Phường" />
+                              <TableColumn fx:id="Quan" prefWidth="109.99993896484375" text="Quận" />
+                          </columns>
+                        </TableView>
+                     </center>
+                     <top>
+                        <HBox fx:id="hBox" prefHeight="36.0" prefWidth="592.0" spacing="5.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="27.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Picture/img_3.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField alignment="BOTTOM_LEFT" prefHeight="25.0" prefWidth="157.0" />
+                              <Button fx:id="themHo" mnemonicParsing="false" onAction="#addCacHo" prefHeight="25.0" prefWidth="117.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="Thêm hộ" />
+                              <Button mnemonicParsing="false" onAction="#editCacHo" prefHeight="25.0" prefWidth="125.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="Chỉnh sửa hộ" />
+                              <Button mnemonicParsing="false" onAction="#XoaHo" prefHeight="25.0" prefWidth="139.0" styleClass="button4" stylesheets="@fullpackstyling.css" text="Xóa hộ" />
+                           </children>
+                        </HBox>
+                     </top>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <BorderPane prefHeight="586.0" prefWidth="650.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <Pane prefHeight="95.0" prefWidth="795.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="14.0" layoutY="14.0" spacing="10.0">
+                     <children>
+                        <HBox spacing="4.0">
+                           <children>
+                              <Label text="Mã hộ: ">
+                                 <font>
+                                    <Font name="Consolas" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="17.0" prefWidth="39.0" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="4.0">
+                           <children>
+                              <Label text="Tên chủ hộ:">
+                                 <font>
+                                    <Font name="Consolas" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="17.0" prefWidth="39.0" />
+                           </children>
+                        </HBox>
+                        <HBox spacing="4.0">
+                           <children>
+                              <Label text="Số điện thoại chủ hộ: ">
+                                 <font>
+                                    <Font name="Consolas" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="17.0" prefWidth="39.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+         </top>
+      </BorderPane>
+      <Pane fx:id="pnLogin" layoutX="-2.0" prefHeight="447.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane layoutY="200.0" prefHeight="401.0" prefWidth="800.0" style="-fx-background-color: #400080;" stylesheets="@fullpackstyling.css" />
+            <Pane prefHeight="200.0" prefWidth="800.0" style="-fx-background-color: #8c1aff;">
+               <children>
+                  <Label alignment="CENTER" layoutX="-1.0" layoutY="46.0" prefHeight="54.0" prefWidth="800.0" text="Phần mềm quản lý nhân khẩu" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="230.0" layoutY="125.0" prefHeight="223.0" prefWidth="319.0" style="-fx-background-color: #7a00cc; -fx-background-radius: 20 20 20 20;">
+                     <children>
+                        <Label layoutX="46.0" layoutY="78.0" text="Username" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="48.0" layoutY="116.0" text="Password" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="username" layoutX="117.0" layoutY="76.0" promptText="username" />
+                        <PasswordField fx:id="password" layoutX="118.0" layoutY="113.0" promptText="password" />
+                        <Button fx:id="loginButton" alignment="CENTER" layoutX="112.0" layoutY="167.0" mnemonicParsing="false" onAction="#LoginButton" prefHeight="27.0" prefWidth="104.0" styleClass="button1" stylesheets="@fullpackstyling.css" text="Login" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <Hyperlink alignment="CENTER" layoutX="45.0" layoutY="197.0" prefHeight="24.0" prefWidth="238.0" text="forgot password?" textFill="WHITE" underline="true" />
+                        <ImageView fitHeight="14.0" fitWidth="14.0" layoutX="30.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Picture/img.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="20.0" fitWidth="14.0" layoutX="30.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Picture/img_1.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="notify" alignment="CENTER" layoutX="28.0" layoutY="145.0" prefHeight="17.0" prefWidth="286.0" textFill="#eb0d0d">
+                           <font>
+                              <Font name="System Bold Italic" size="10.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
