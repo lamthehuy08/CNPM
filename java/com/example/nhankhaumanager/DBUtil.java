@@ -23,9 +23,9 @@ public class DBUtil{
         if(c!=null){
             try {
                 c.close();
-            } catch (SQLException e) {
+            } catch (SQLException e){
                 throw new RuntimeException(e);
             }
-        }
+        } 
     }
 }
